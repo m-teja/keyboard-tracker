@@ -1,0 +1,17 @@
+#openTab {
+    color:aliceblue;
+    white-space: nowrap;
+    background-color:forestgreen;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;  
+    font-size: 18px;
+    
+}
+#openTab:hover {
+    cursor:pointer;
+    opacity: 0.8;
+}
+#openTab:active {
+    background-color:purple;
+}

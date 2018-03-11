@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Keyboard stroke logger",
-    "version": "0.2",
+    "version": "0.3",
     "author": "Matthew Teja", 
     "browser_action": {
         
@@ -18,7 +18,7 @@
         [
         "<all_urls>"
         ],
-        "js": ["jquery-3.2.1.js", "popup.js", "main.js", "allStats.js"],
+        "js": ["jquery-3.2.1.js", "popup.js", "main.js"],
         "css": ["popup.css"]
         }    
     ]

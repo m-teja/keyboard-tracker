@@ -8,63 +8,74 @@ document.body.addEventListener('keypress', function (ev) {
         if (chrome.runtime.error) {
             console.log("Runtime error.");
         }
+        if (tempList.length > 10) {
+            //if tempList holds more than 10 values update stats
+            updateStats();  
+        }
         console.log(tempList);
-        testing();
-        
     });
 });
-
-
-
 //loads onto html page
 function load() {
+    updateStats();
+    save();
+    chrome.storage.local.get("fullList", function(items) {
+        document.getElementById("list").innerHTML = items.fullList;
+    });
+}
+document.getElementById("update").onclick = load;
+window.onload = load;
+
+//transfers temp list to full list
+function updateStats() {
     chrome.storage.local.get("fullList", function (getList) { 
         chrome.storage.local.get("keyPressed", function (items) {
             if (!chrome.runtime.error) {
-                console.log("recieved" + items.keyPressed);
                 document.getElementById("display").innerHTML = items.keyPressed;
+                
                 var tempAry = getList.fullList;
-                console.log(tempAry);
                 for (i = 0; i < items.keyPressed.length; i++) {
                     var tempPress = items.keyPressed[i];
                     tempAry[tempPress - 1] = tempPress;
                 }
-                console.log(tempAry);
                 save(tempAry);
             }
         });
     });
 }
-document.getElementById("update").onclick = load;
-
+//saves full list
 function save(tempAry) {
     chrome.storage.local.set({ "fullList" : tempAry}, function () {
         console.log(tempAry);
+        resetTemp();
     });
+    
 }
 
-function reset() {
+// send missle
+function resetAll() {
+    resetTemp();
+    resetArray();
+    document.getElementById("list").innerHTML = fullArray;
+    console.log(fullArray);
+}
+document.getElementById("reset").onclick = resetAll;
+
+//resets temp array 
+function resetTemp() {
+    chrome.storage.local.set({ "keyPressed" : ""}, function () {
+        console.log("temporary cache reset");
+        tempList = [-1];
+    });
+}
+//resets saved array
+function resetArray() {
     fullArray[199] = 0;
     fullArray.fill(0, 0, 200);
     chrome.storage.local.set({ "fullList" : fullArray }, function () {
         if (chrome.runtime.error) {
             console.log("Runtime error.");
         }
-        document.getElementById("list").innerHTML = fullArray;
-        console.log(fullArray);
-        
     });
 }
-document.getElementById("reset").onclick = reset;
-
-
-
-/*
-function testing() {
-    chrome.storage.local.get("keyPressed", function (items) {
-        if (!chrome.runtime.error) {
-            console.log("recieved" + items.keyPressed);
-        }
-    });
-}
-*/
+                             

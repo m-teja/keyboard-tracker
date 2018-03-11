@@ -18,7 +18,7 @@
         [
         "<all_urls>"
         ],
-        "js": ["jquery-3.2.1.js", "popup.js", "main.js"],
+        "js": ["jquery-3.2.1.js", "popup.js", "main.js", "allStats.js"],
         "css": ["popup.css"]
         }    
     ]

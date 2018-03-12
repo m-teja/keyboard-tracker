@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 2dd1ffa12bfce798e499b610d4209e552b414483
+=======
+>>>>>>> parent of 51480ea... Merge branch 'master' of https://github.com/m-teja/keyboard-tracker
 window.onload = function() {
     var tempList = [];
     var fullArray = [];
@@ -278,6 +281,7 @@ window.onload = function() {
     }
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -645,4 +649,6 @@ window.onload = function() {
 
 >>>>>>> 8fc46c251aa9278709b6ec25ea95304ae4837fa0
 >>>>>>> 2dd1ffa12bfce798e499b610d4209e552b414483
+=======
+>>>>>>> parent of 51480ea... Merge branch 'master' of https://github.com/m-teja/keyboard-tracker
 };

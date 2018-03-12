@@ -1,7 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 2dd1ffa12bfce798e499b610d4209e552b414483
+=======
+>>>>>>> parent of 51480ea... Merge branch 'master' of https://github.com/m-teja/keyboard-tracker
 {
     "manifest_version": 2,
     "name": "Keyboard stroke logger",
@@ -30,6 +33,7 @@
         "scripts": ["jquery-3.2.1.js"]
     }
 }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -63,3 +67,5 @@
 }
 >>>>>>> 8fc46c251aa9278709b6ec25ea95304ae4837fa0
 >>>>>>> 2dd1ffa12bfce798e499b610d4209e552b414483
+=======
+>>>>>>> parent of 51480ea... Merge branch 'master' of https://github.com/m-teja/keyboard-tracker

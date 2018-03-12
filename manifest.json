@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "manifest_version": 2,
     "name": "Keyboard stroke logger",
@@ -26,3 +27,33 @@
         "scripts": ["jquery-3.2.1.js"]
     }
 }
+=======
+{
+    "manifest_version": 2,
+    "name": "Keyboard stroke logger",
+    "version": "0.4",
+    "author": "Matthew Teja", 
+    "browser_action": {
+        
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    
+    "content_scripts":[
+        {
+        "matches": 
+        [
+        "<all_urls>"
+        ],
+        "js": ["jquery-3.2.1.js", "popup.js", "main.js"],
+        "css": ["popup.css"]
+        }    
+    ],
+    "background": {
+        "scripts": ["jquery-3.2.1.js"]
+    }
+}
+>>>>>>> 8fc46c251aa9278709b6ec25ea95304ae4837fa0

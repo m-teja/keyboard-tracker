@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 2dd1ffa12bfce798e499b610d4209e552b414483
 window.onload = function() {
     var tempList = [];
     var fullArray = [];
@@ -275,6 +278,8 @@ window.onload = function() {
     }
 
 
+<<<<<<< HEAD
+=======
 =======
 window.onload = function() {
     var tempList = [];
@@ -639,4 +644,5 @@ window.onload = function() {
 
 
 >>>>>>> 8fc46c251aa9278709b6ec25ea95304ae4837fa0
+>>>>>>> 2dd1ffa12bfce798e499b610d4209e552b414483
 };

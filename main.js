@@ -273,6 +273,7 @@ window.onload = function () {
             };
             document.getElementById("details").innerHTML = keyboardMap[keyPressed];
             chrome.storage.local.get("fullList", function(items) {
+                
                 var tempAry = items.fullList;
                 updateStats();
                 document.getElementById("numPressed").innerHTML = "You have pressed " + "\"" + keyboardMap[keyPressed] + "\"" + " " + (tempAry[keyPressed - 1] + 1) + " time(s).";

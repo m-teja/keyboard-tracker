@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 2dd1ffa12bfce798e499b610d4209e552b414483
-=======
->>>>>>> parent of 51480ea... Merge branch 'master' of https://github.com/m-teja/keyboard-tracker
+
 {
     "manifest_version": 2,
     "name": "Keyboard stroke logger",
-    "version": "0.4",
+    "version": "0.4.3",
     "author": "Matthew Teja", 
     "browser_action": {
         
@@ -21,51 +15,16 @@
     
     "content_scripts":[
         {
-        "matches": 
-        [
-        "<all_urls>"
+        "matches": [
+            "<all_urls>" 
         ],
+        "all_frames": true,  
+        "match_about_blank": true,
         "js": ["jquery-3.2.1.js", "popup.js", "main.js"],
         "css": ["popup.css"]
         }    
     ],
     "background": {
-        "scripts": ["jquery-3.2.1.js"]
+        "scripts": ["main.js"]
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-{
-    "manifest_version": 2,
-    "name": "Keyboard stroke logger",
-    "version": "0.4",
-    "author": "Matthew Teja", 
-    "browser_action": {
-        
-        "default_popup": "popup.html"
-    },
-    "permissions": [
-        "storage",
-        "tabs"
-    ],
-    
-    "content_scripts":[
-        {
-        "matches": 
-        [
-        "<all_urls>"
-        ],
-        "js": ["jquery-3.2.1.js", "popup.js", "main.js"],
-        "css": ["popup.css"]
-        }    
-    ],
-    "background": {
-        "scripts": ["jquery-3.2.1.js"]
-    }
-}
->>>>>>> 8fc46c251aa9278709b6ec25ea95304ae4837fa0
->>>>>>> 2dd1ffa12bfce798e499b610d4209e552b414483
-=======
->>>>>>> parent of 51480ea... Merge branch 'master' of https://github.com/m-teja/keyboard-tracker

@@ -1,12 +1,7 @@
 window.onload = function () {
     var tempList = [];
     var fullArray = [];
-    
-    chrome.runtime.onInstalled.addListener(function (details) {
-        if (details.reason == "install") {
-            resetArray();
-        }
-    });
+
     
     
     //Detects key presses
@@ -33,7 +28,7 @@ window.onload = function () {
         save();
         
     }
-    document.getElementById("update").onclick = load;
+
     window.onload = load;
 
     //transfers temp list to full list
@@ -68,7 +63,7 @@ window.onload = function () {
         resetArray();
         console.log(fullArray);
     }
-    document.getElementById("reset").onclick = resetAll;
+
 
     //resets temp array 
     function resetTemp() {
@@ -271,9 +266,10 @@ window.onload = function () {
                 244: "kanji",
                 255: "toggle touchpad"
             };
+            document.getElementById("update").onclick = load;
+            document.getElementById("reset").onclick = resetAll;
             document.getElementById("details").innerHTML = keyboardMap[keyPressed];
             chrome.storage.local.get("fullList", function(items) {
-                
                 var tempAry = items.fullList;
                 updateStats();
                 document.getElementById("numPressed").innerHTML = "You have pressed " + "\"" + keyboardMap[keyPressed] + "\"" + " " + (tempAry[keyPressed - 1] + 1) + " time(s).";

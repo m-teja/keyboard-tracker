@@ -1,7 +1,117 @@
+html {
+    background-color:aliceblue;
+}
+.header {
+    position:absolute;
+    display:block;
+    background-color:lightgreen;
+    padding:0;
+    margin: 0;
+    height:10%;
+    width:100%;
+    left:0px;
+    top:0px;
+}
+#title {
+    position:absolute;
+    display:inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 30px;
+}
+.extendedMenu {
+    position:absolute;
+    display: none;
+    background-color:dimgrey;
+    padding:0;
+    margin: 0;
+    height:90%;
+    width:18%;
+    left:0px;
+    top:10%;
+}
+.extendedMenu a {
+    display: block;
+    position:relative;
+    background-color: lightgray;
+    border-color:gray;
+    border-style: inset;
+    box-sizing: border-box;
+    width:100%;
+    padding:8% 0;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+    
+}
+.extendedMenu a:hover {
+    opacity: 0.8;
+}
+.extendedMenu a:active {
+    text-decoration: none;
+    opacity: 0.6;
+}
+.menu {
+    position:relative;
+    cursor: pointer;
+    display:inline-block;
+    left:20px;
+    top:15px;
+}
+.bar {
+    position:relative;
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
 .stats {
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -40%);
+    position:absolute;
     text-align: center;
 }
 #details {
     font-size: 30px;
     text-transform: uppercase;
+}
+
+
+
+
+
+
+
+.optionFunctions {
+    position:absolute;
+    background-color:dimgrey;
+    padding:0;
+    margin: 0;
+    height:90%;
+    width:18%;
+    left:0px;
+    top:10%;
+}
+.optionFunctions button {
+    display: block;
+    position:relative;
+    background-color: lightgray;
+    border-color:gray;
+    border-style: inset;
+    box-sizing: border-box;
+    width:100%;
+    padding:8% 0;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+}
+.optionFunctions button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+.optionFunctions button:active {
+    opacity: 0.6;
 }

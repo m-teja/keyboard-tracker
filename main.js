@@ -5,7 +5,7 @@ window.onload = function () {
     
     
     //Detects key presses
-    document.onkeyup = function(ev) {
+    document.onkeyup = function (ev) {
         console.log(ev.keyCode);
         tempList.push(ev.keyCode);
         disp(ev.keyCode);
@@ -22,19 +22,11 @@ window.onload = function () {
             console.log(tempList);
         });
     };
-    //loads onto html page
-    function load() {
-        updateStats();
-        save();
-        
-    }
-
-    window.onload = load;
 
     //transfers temp list to full list
     function updateStats() {
-        chrome.storage.local.get("fullList", function(getList) {
-            chrome.storage.local.get("keyPressed", function(items) {
+        chrome.storage.local.get("fullList", function (getList) {
+            chrome.storage.local.get("keyPressed", function (items) {
                 if (!chrome.runtime.error) {
                     var tempAry = getList.fullList;
                     for (i = 0; i < items.keyPressed.length; i++) {
@@ -59,29 +51,35 @@ window.onload = function () {
 
     //resets everything
     function resetAll() {
+        var check = prompt("Are you sure you want to reset your values? This cannot be undone.\n\n To confirm, please input 'delete'");
+        if (check == "delete") {
+            alert("Values reset");
+        }
+        /*
         resetTemp();
         resetArray();
-        console.log(fullArray);
+        console.log(fullArray);*/
     }
-
-
+    if (document.getElementById("reset") != null) {
+        document.getElementById("reset").onclick = resetAll;
+    }
     //resets temp array 
     function resetTemp() {
         chrome.storage.local.set({
             "keyPressed": ""
-        }, function() {
+        }, function () {
             console.log("temporary cache reset");
             tempList = [-1];
         });
     }
     //resets saved array
     function resetArray() {
-        chrome.storage.local.clear(function() {
+        chrome.storage.local.clear(function () {
             fullArray[199] = 0;
             fullArray.fill(0, 0, 200);
             chrome.storage.local.set({
                 "fullList": fullArray
-            }, function() {
+            }, function () {
                 if (chrome.runtime.error) {
                     console.log("Runtime error.");
                 }
@@ -89,8 +87,16 @@ window.onload = function () {
         });
 
     }
-
-
+    //shows menu on extension page
+    function showMenu() {
+        var x = document.getElementById("more");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    document.getElementById("press").onclick = showMenu;
 
     //check if chrome extension popup
     function disp(keyPressed) {
@@ -266,10 +272,8 @@ window.onload = function () {
                 244: "kanji",
                 255: "toggle touchpad"
             };
-            document.getElementById("update").onclick = load;
-            document.getElementById("reset").onclick = resetAll;
             document.getElementById("details").innerHTML = keyboardMap[keyPressed];
-            chrome.storage.local.get("fullList", function(items) {
+            chrome.storage.local.get("fullList", function (items) {
                 var tempAry = items.fullList;
                 updateStats();
                 document.getElementById("numPressed").innerHTML = "You have pressed " + "\"" + keyboardMap[keyPressed] + "\"" + " " + (tempAry[keyPressed - 1] + 1) + " time(s).";

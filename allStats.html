@@ -1,22 +1,31 @@
 <html>
 
-    <head>
-        <link rel="stylesheet" href="allStats.css">
-    </head>
-    
-    <body class="mainAllStats">
-        <button id="update">Press this button to update your stats</button>
-        <button id="reset">Press this button to reset</button>
+<head>
+    <link rel="stylesheet" href="allStats.css">
+</head>
+
+<body class="mainAllStats">
+    <div class="header">
+        <h1 id="title">Keyboard Extended Statistics</h1>
+        <div id = "press" class="menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </div>
+    <div id="more" class="extendedMenu">
+        <a id="openOptions" href="options.html">Options</a>
         
-        <div class="stats">
+    </div>
+    <div class="stats">
         <h1>Press any key to view detailed stats</h1>
         <br>
         <h2 id="details">_</h2>
         <h3 id="numPressed">_</h3>
-        </div>
+    </div>
 
 
-        <script src="main.js"></script>
-    </body>
-    
+    <script src="main.js"></script>
+</body>
+
 </html>

@@ -2,8 +2,8 @@ window.onload = function () {
     var tempList = [];
     var fullArray = [];
 
-    
-    
+
+
     //Detects key presses
     document.onkeyup = function (ev) {
         console.log(ev.keyCode);
@@ -11,7 +11,7 @@ window.onload = function () {
         disp(ev.keyCode);
         chrome.storage.local.set({
             "keyPressed": tempList
-        }, function() {
+        }, function () {
             if (chrome.runtime.error) {
                 console.log("Runtime error.");
             }
@@ -52,7 +52,7 @@ window.onload = function () {
     //resets everything
     function resetAll() {
         var check = prompt("Are you sure you want to reset your values? This cannot be undone.\n\n To confirm, please input 'delete'");
-        if (check == "delete") {
+        if (check === "delete") {
             alert("Values reset");
         }
         /*
@@ -60,14 +60,14 @@ window.onload = function () {
         resetArray();
         console.log(fullArray);*/
     }
-    if (document.getElementById("reset") != null) {
+    if (document.getElementById("reset") !== null) {
         document.getElementById("reset").onclick = resetAll;
     }
     //resets temp array 
     function resetTemp() {
         chrome.storage.local.set({
             "keyPressed": ""
-        }, function () {
+        }, function() {
             console.log("temporary cache reset");
             tempList = [-1];
         });
@@ -272,7 +272,40 @@ window.onload = function () {
                 244: "kanji",
                 255: "toggle touchpad"
             };
+            //displays key pressed
             document.getElementById("details").innerHTML = keyboardMap[keyPressed];
+            //what place in the array
+            chrome.storage.local.get("fullList", function (items) {
+                var tempAry = items.fullList;
+                var place = 0;
+                var prefix;
+                updateStats();
+                for (i = 0; i < tempAry.length; i++) {
+                    if (tempAry[i] !== 0 && tempAry[i] !== null) {
+                        if (tempAry[i] >= tempAry[keyPressed - 1]) {
+                            place++;
+                            console.log(keyPressed);
+                        }
+                    }
+                }
+
+                switch (place) {
+                case 1:
+                    prefix = "";
+                    break;
+                case 2:
+                    prefix = " " + place + "nd";
+                    break;
+                case 3:
+                    prefix = " " + place + "rd";
+                    break;
+                default:
+                    prefix = " " + place + "th";
+                    break;
+                }
+                document.getElementById("nthButton").innerHTML = "Your" + prefix + " most typed key";
+            });
+
             chrome.storage.local.get("fullList", function (items) {
                 var tempAry = items.fullList;
                 updateStats();

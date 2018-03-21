@@ -305,7 +305,9 @@ window.onload = function () {
                 }
                 document.getElementById("nthButton").innerHTML = "Your" + prefix + " most typed key";
             });
+            
 
+            //shows key
             chrome.storage.local.get("fullList", function (items) {
                 var tempAry = items.fullList;
                 updateStats();

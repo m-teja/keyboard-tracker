@@ -102,6 +102,7 @@ window.onload = function () {
     function disp(keyPressed) {
         if (document.body.classList.contains("mainAllStats")) {
             var keyboardMap = {
+                //list of keycodes
                 0: "That key has no keycode",
                 3: "break",
                 8: "backspace / delete",

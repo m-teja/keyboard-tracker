@@ -55,10 +55,10 @@ window.onload = function () {
         if (check === "delete") {
             alert("Values reset");
         }
-        /*
+        
         resetTemp();
         resetArray();
-        console.log(fullArray);*/
+        console.log(fullArray);
     }
     if (document.getElementById("reset") !== null) {
         document.getElementById("reset").onclick = resetAll;
